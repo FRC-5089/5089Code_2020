@@ -1,0 +1,9 @@
+First Iteration of Button Making
+for (var i = 1; i <= r; i++)
+{
+  button("" + i,i);
+  setProperty("" + i, "font-size", 10);
+  setProperty("" + i, "text-align", "center");
+  setProperty("" + i, "border-radius", 100);
+  setPosition("" + i, randomNumber(0,250), randomNumber(0,350), 40, 40);
+}

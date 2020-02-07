@@ -10,7 +10,15 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+//Camera
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 
+//
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
@@ -32,6 +40,49 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
   }
+	//cameras
+		new Thread(() -> {
+			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+			camera.setResolution(640, 480);
+			
+			CvSink cvSink = CameraServer.getInstance().getVideo();
+			CvSource outputStream = CameraServer.getInstance().putVideo("USBCamera0", 640, 480);
+			
+			Mat source = new Mat();
+			Mat output = new Mat();
+			
+			while(!Thread.interrupted()) {
+				cvSink.grabFrame(source);
+				Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+				outputStream.putFrame(output);
+			}
+		}).start();
+	{
+	
+
+	}
+	
+
+	new Thread(() -> {
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		camera.setResolution(640, 480);
+		
+		CvSink cvSink = CameraServer.getInstance().getVideo();
+		CvSource outputStream = CameraServer.getInstance().putVideo("USBCamera1", 640, 480);
+		
+		Mat source = new Mat();
+		Mat output = new Mat();
+		
+		while(!Thread.interrupted()) {
+			cvSink.grabFrame(source);
+			Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+			
+			outputStream.putFrame(output);
+		}
+	}).start();
+
+	
+}
 
   /**
    * This function is called every robot packet, no matter the mode. Use this for items like

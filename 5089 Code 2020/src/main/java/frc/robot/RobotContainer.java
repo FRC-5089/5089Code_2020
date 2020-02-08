@@ -31,6 +31,8 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ConveyorCommand;
+import frc.robot.commands.ShooterCommand;
+import frc.robot.subsystems.Shooter_sub;
 
 
 
@@ -49,7 +51,11 @@ public class RobotContainer {
   //Subsystem
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   public static Drivebase m_Drivebase = new Drivebase();
+  public static Shooter_sub m_shooterSetup = new Shooter_sub();
 
+  
+  
+  
   
   private final Joystick stick = new Joystick(Constants.Joystick_port);
   private final JoystickButton = redButton = new JoystickButton(stick, Constants.Joystick_buttonR);
@@ -77,6 +83,7 @@ public class RobotContainer {
   JoystickButton Fowawrd = new JoystickButton(Driver, 2);
 
   JoystickButton Con_button = new JoystickButton(stick, 1);
+  JoystickButton Shooter_button = new JoystickButton(stick,2);
 
   
   
@@ -118,6 +125,7 @@ public class RobotContainer {
     yellowButton.whileHeld(new ColorMatchYellow());
     
     Con_button.whileHeld(new ConveyorCommand());
+    Shooter_button.whileHeld(new ShooterCommand());
 
     
 

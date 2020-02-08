@@ -30,6 +30,7 @@ import frc.robot.subsystems.EncoderMotor;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.ConveyorCommand;
 
 
 
@@ -58,7 +59,8 @@ public class RobotContainer {
 
   
   
-  
+    public static Joystick stick = new Joystick(0);
+
   
   
   
@@ -74,7 +76,8 @@ public class RobotContainer {
   JoystickButton Button = new JoystickButton(Driver, 1);
   JoystickButton Fowawrd = new JoystickButton(Driver, 2);
 
-  
+  JoystickButton Con_button = new JoystickButton(stick, 1);
+
   
   
   
@@ -113,6 +116,10 @@ public class RobotContainer {
     blueButton.whileHeld(new ColorMatchBlue());
     greenButton.whileHeld(new ColorMatchGreen());
     yellowButton.whileHeld(new ColorMatchYellow());
+    
+    Con_button.whileHeld(new ConveyorCommand());
+
+    
 
   }
 

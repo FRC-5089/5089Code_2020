@@ -31,6 +31,9 @@ public class Wheel_of_Fortune extends CommandBase
   private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);
   
   
+  //This will need a button and differnt motor assignment
+  
+  
   /**
    * Creates a new Encoder.
    */

@@ -25,7 +25,12 @@ public final class Constants {
 
 	public static final int Drive_Controller_Right_Y = 3;
 	public static final int Drive_Controller_Left_Y = 1;
-
 	
+	
+	public static final int Joystick_port = 0;
+	public static final int Joystick_buttonG = 2;
+	public static final int Joystick_buttonY = 3;
+	public static final int Joystick_buttonR = 4;
+	public static final int Joystick_buttonB = 5;
   
 }

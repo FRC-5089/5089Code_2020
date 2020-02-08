@@ -13,11 +13,28 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.Drive;
 import frc.robot.commands.Encoder;
 import frc.robot.commands.ExampleCommand;
+
+import frc.robot.commands.ColorMatchRed;
+import frc.robot.commands.ColorMatchBlue;
+import frc.robot.commands.ColorMatchGreen;
+import frc.robot.commands.ColorMatchYellow;
+import frc.robot.subsystems.ColorSetup;
+
+// needs import for Joystick Button//
+
+
+
+
 import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.EncoderMotor;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
+
+
+
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -32,6 +49,19 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   public static Drivebase m_Drivebase = new Drivebase();
 
+  
+  private final Joystick stick = new Joystick(Constants.Joystick_port);
+  private final JoystickButton = redButton = new JoystickButton(stick, Constants.Joystick_buttonR);
+  private final JoystickButton = blueButton = new JoystickButton(stick, Constants.Joystick_buttonB);
+  private final JoystickButton = greenButton = new JoystickButton(stick, Constants.Joystick_buttonG);
+  private final JoystickButton = yellowButton = new JoystickButton(stick, Constants.Joystick_buttonY);
+
+  
+  
+  
+  
+  
+  
   public static EncoderMotor mEncoderMotor = new EncoderMotor();
 
   //Commands
@@ -44,6 +74,10 @@ public class RobotContainer {
   JoystickButton Button = new JoystickButton(Driver, 1);
   JoystickButton Fowawrd = new JoystickButton(Driver, 2);
 
+  
+  
+  
+  
   /*double Left_Side()
   {
     double Left = Driver.getRawAxis(1);
@@ -75,6 +109,11 @@ public class RobotContainer {
   private void configureButtonBindings() 
   {
     Button.whileHeld(new Encoder());
+    redButton.whileHeld(new ColorMatchRed());
+    blueButton.whileHeld(new ColorMatchBlue());
+    greenButton.whileHeld(new ColorMatchGreen());
+    yellowButton.whileHeld(new ColorMatchYellow());
+
   }
 
 

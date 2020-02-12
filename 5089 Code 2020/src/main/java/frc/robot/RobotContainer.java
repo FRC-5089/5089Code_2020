@@ -33,7 +33,8 @@ import frc.robot.commands.ConveyorCommand;
 import frc.robot.commands.ConveyorCommandBackward;
 import frc.robot.commands.ShooterCommand;
 import frc.robot.subsystems.Shooter_sub;
-
+import frc.robot.commands.IntakeForward;
+import frc.robot.commands.IntakeBackwards;
 
 
 
@@ -83,12 +84,15 @@ public class RobotContainer {
   JoystickButton Fowawrd = new JoystickButton(Driver, 2);
 
   JoystickButton Con_button = new JoystickButton(stick, 1);
+  
   JoystickButton Shooter_button = new JoystickButton(stick,2);
   
-  JoystickButton Con_buttonF = new JoystickButton(stick, 1);
-  JoystickButton Con_buttonB = new JoystickButton(stick, 2);
+  JoystickButton Con_buttonF = new JoystickButton(stick, 3);
+  JoystickButton Con_buttonB = new JoystickButton(stick, 4);
 
-  
+  JoystickButton Intake_ButtonF = new JoystickButton(stick,5);
+  JoystickButton Intake_ButtonB = new JoystickButton(stick,6);
+
   
   
   /*double Left_Side()
@@ -131,7 +135,9 @@ public class RobotContainer {
     Con_buttonB.whileHeld(new ConveyorCommandBackward());
     Shooter_button.whileHeld(new ShooterCommand());
 
-    
+    Intake_ButtonF.whileHeld(new IntakeForward());
+    Intake_ButtonB.whileHeld(new IntakeBackwards());
+
 
   }
 

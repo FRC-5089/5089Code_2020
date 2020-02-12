@@ -34,7 +34,7 @@ public VictorSPX Con_Motor = new VictorSPX(Constants.Con_7_ID);
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Con_Motor.set(ControlMode.PercentOutput, 1);
+    Con_Motor.set(ControlMode.PercentOutput, -1);
   }
 
   // Called once the command ends or is interrupted.

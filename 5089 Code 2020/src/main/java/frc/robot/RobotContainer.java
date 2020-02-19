@@ -64,6 +64,17 @@ public class RobotContainer {
 
 
   
+  public double Get_Controller_LeftY()
+	{
+		double LEFTY = Driver.getRawAxis(1);
+		return LEFTY;
+  }
+  public double Get_Controller_RightY()
+	{
+		double RIGHTY = Driver.getRawAxis(3);
+		return RIGHTY;
+  }
+  
   
     public static Joystick Driver = new Joystick(0);
     public static Joystick Co_Driver = new Joystick(1);

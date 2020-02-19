@@ -83,9 +83,9 @@ public class RobotContainer {
   JoystickButton Intake_ButtonB = new JoystickButton(Driver,2);
  
   
-  JoystickButton Shooter_button = new JoystickButton(Co_Driver,1);
-  JoystickButton Con_buttonF = new JoystickButton(Co_Driver, 2);
-  JoystickButton Con_buttonB = new JoystickButton(Co_Driver, 3);
+  JoystickButton Shooter_button = new JoystickButton(Co_Driver,5);
+  JoystickButton Con_buttonF = new JoystickButton(Co_Driver, 6);
+  JoystickButton Con_buttonB = new JoystickButton(Co_Driver, 7);
   private final JoystickButton = redButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonR);
   private final JoystickButton = blueButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonB);
   private final JoystickButton = greenButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonG);

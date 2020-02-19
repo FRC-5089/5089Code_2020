@@ -58,15 +58,15 @@ public class RobotContainer {
   
   
   
-  private final Joystick stick = new Joystick(Constants.Joystick_port);
-  private final JoystickButton = redButton = new JoystickButton(stick, Constants.Joystick_buttonR);
-  private final JoystickButton = blueButton = new JoystickButton(stick, Constants.Joystick_buttonB);
-  private final JoystickButton = greenButton = new JoystickButton(stick, Constants.Joystick_buttonG);
-  private final JoystickButton = yellowButton = new JoystickButton(stick, Constants.Joystick_buttonY);
+  private final Joystick Driver = new Joystick(Constants.Joystick_Driver);
+  private final Joystick Co_Driver = new Joystick(Constants.Joystick_CoDriver);
+
+
 
   
   
-    public static Joystick stick = new Joystick(0);
+    public static Joystick Driver = new Joystick(0);
+    public static Joystick Co_Driver = new Joystick(1);
 
   
   
@@ -77,21 +77,20 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   
 
-  public static Joystick Driver = new Joystick(Constants.Controller);
 
     
-  JoystickButton Button = new JoystickButton(Driver, 1);
-  JoystickButton Fowawrd = new JoystickButton(Driver, 2);
-
-  JoystickButton Con_button = new JoystickButton(stick, 1);
+  JoystickButton Intake_ButtonF = new JoystickButton(Driver,1);
+  JoystickButton Intake_ButtonB = new JoystickButton(Driver,2);
+ 
   
-  JoystickButton Shooter_button = new JoystickButton(stick,2);
-  
-  JoystickButton Con_buttonF = new JoystickButton(stick, 3);
-  JoystickButton Con_buttonB = new JoystickButton(stick, 4);
+  JoystickButton Shooter_button = new JoystickButton(Co_Driver,1);
+  JoystickButton Con_buttonF = new JoystickButton(Co_Driver, 2);
+  JoystickButton Con_buttonB = new JoystickButton(Co_Driver, 3);
+  private final JoystickButton = redButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonR);
+  private final JoystickButton = blueButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonB);
+  private final JoystickButton = greenButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonG);
+  private final JoystickButton = yellowButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonY);
 
-  JoystickButton Intake_ButtonF = new JoystickButton(stick,5);
-  JoystickButton Intake_ButtonB = new JoystickButton(stick,6);
 
   
   

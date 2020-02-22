@@ -92,19 +92,17 @@ public class RobotContainer {
   private final JoystickButton yellowButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonY);
 
  
-  
-  
-  /*double Left_Side()
-  {
-    double Left = Driver.getRawAxis(1);
-    return Left;
+  public double Get_Controller_LeftY()
+	{
+		double LEFTY = Driver.getRawAxis(1);
+		return LEFTY;
   }
-  double Right_Side()
-  {
-    double Right = Driver.getRawAxis(3);
-    return Right;
-  }*/
-
+  public double Get_Controller_RightY()
+	{
+		double RIGHTY = Driver.getRawAxis(3);
+		return RIGHTY;
+  }
+  
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.

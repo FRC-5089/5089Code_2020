@@ -35,6 +35,7 @@ import frc.robot.commands.ShooterCommand;
 import frc.robot.subsystems.Shooter_sub;
 import frc.robot.commands.IntakeForward;
 import frc.robot.commands.IntakeBackwards;
+import frc.robot.subsystems.Color_Motor;
 
 
 
@@ -53,32 +54,18 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   public static DriveSetup m_DriveSetup = new DriveSetup();
   public static Shooter_sub m_shooterSetup = new Shooter_sub();
-  public static Motor1 m_Motor1 = new Motor1();
+  public static Color_Motor m_Color_Motor = new Color_Motor();
   public static ColorSetup m_ColorSetup = new ColorSetup();
   
   
   
   
-  private final Joystick Driver = new Joystick(Constants.Joystick_Driver);
-  private final Joystick Co_Driver = new Joystick(Constants.Joystick_CoDriver);
+  public static Joystick Driver = new Joystick(Constants.Joystick_Driver);
+  private static Joystick Co_Driver = new Joystick(Constants.Joystick_CoDriver);
 
 
 
-  
-  public double Get_Controller_LeftY()
-	{
-		double LEFTY = Driver.getRawAxis(1);
-		return LEFTY;
-  }
-  public double Get_Controller_RightY()
-	{
-		double RIGHTY = Driver.getRawAxis(3);
-		return RIGHTY;
-  }
-  
 
-  
-  
   
   //public static EncoderMotor mEncoderMotor = new EncoderMotor();
 
@@ -120,7 +107,7 @@ public class RobotContainer {
    */
   public RobotContainer() 
   {
-    m_DriveSetup.setDefaultCommand((Command) new DriveSetup());
+    m_DriveSetup.setDefaultCommand(new DriveCommand());
     // Configure the button bindings
     configureButtonBindings();
   }

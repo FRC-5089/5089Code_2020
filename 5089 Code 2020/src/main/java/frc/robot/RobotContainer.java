@@ -10,8 +10,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.Drive;
-import frc.robot.commands.Encoder;
+import frc.robot.commands.DriveCommand;
+//import frc.robot.commands.Encoder;
 import frc.robot.commands.ExampleCommand;
 
 import frc.robot.commands.ColorMatchRed;
@@ -24,8 +24,8 @@ import frc.robot.subsystems.ColorSetup;
 
 
 
-import frc.robot.subsystems.Drivebase;
-import frc.robot.subsystems.EncoderMotor;
+import frc.robot.subsystems.DriveSetup;
+//import frc.robot.subsystems.EncoderMotor;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -51,7 +51,7 @@ public class RobotContainer {
 
   //Subsystem
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  public static Drivebase m_Drivebase = new Drivebase();
+  public static DriveSetup m_Drivebase = new DriveSetup();
   public static Shooter_sub m_shooterSetup = new Shooter_sub();
   public static Motor1 m_Motor1 = new Motor1();
   public static ColorSetup m_ColorSetup = new ColorSetup();
@@ -83,7 +83,7 @@ public class RobotContainer {
   
   
   
-  public static EncoderMotor mEncoderMotor = new EncoderMotor();
+  //public static EncoderMotor mEncoderMotor = new EncoderMotor();
 
   //Commands
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -98,10 +98,10 @@ public class RobotContainer {
   JoystickButton Shooter_button = new JoystickButton(Co_Driver,5);
   JoystickButton Con_buttonF = new JoystickButton(Co_Driver, 6);
   JoystickButton Con_buttonB = new JoystickButton(Co_Driver, 7);
-  private final JoystickButton = redButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonR);
-  private final JoystickButton = blueButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonB);
-  private final JoystickButton = greenButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonG);
-  private final JoystickButton = yellowButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonY);
+  private final JoystickButton redButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonR);
+  private final JoystickButton blueButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonB);
+  private final JoystickButton greenButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonG);
+  private final JoystickButton yellowButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonY);
 
 
   

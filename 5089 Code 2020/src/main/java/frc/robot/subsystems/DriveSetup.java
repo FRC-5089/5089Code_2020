@@ -17,12 +17,12 @@ public class DriveSetup extends SubsystemBase {
   /**
    * Creates a new DriveSetup.
    */
-  public VictorSPX FLMotor_1 = new VictorSPX(Constants.MOTOR_1_ID);
-  public VictorSPX MLMotor_2 = new VictorSPX(Constants.MOTOR_2_ID);
-  public VictorSPX BLMotor_3 = new VictorSPX(Constants.MOTOR_3_ID);
-  public VictorSPX FRMotor_4 = new VictorSPX(Constants.MOTOR_4_ID);
-  public VictorSPX MRMotor_5 = new VictorSPX(Constants.MOTOR_5_ID);
-  public VictorSPX BRMotor_6 = new VictorSPX(Constants.MOTOR_6_ID);
+  public VictorSPX FLMotor_1 = new VictorSPX(Constants.FLMOTOR_1_ID);
+  public VictorSPX MLMotor_2 = new VictorSPX(Constants.MLMOTOR_2_ID);
+  public VictorSPX BLMotor_3 = new VictorSPX(Constants.BLMOTOR_3_ID);
+  public VictorSPX FRMotor_4 = new VictorSPX(Constants.FRMOTOR_4_ID);
+  public VictorSPX MRMotor_5 = new VictorSPX(Constants.MRMOTOR_5_ID);
+  public VictorSPX BRMotor_6 = new VictorSPX(Constants.BRMOTOR_6_ID);
 
 
   public DriveSetup() {

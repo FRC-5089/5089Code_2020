@@ -29,7 +29,7 @@ import frc.robot.subsystems.EncoderMotor;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.ConveyorCommand;
+import frc.robot.commands.ConveyorCommandForward;
 import frc.robot.commands.ConveyorCommandBackward;
 import frc.robot.commands.ShooterCommand;
 import frc.robot.subsystems.Shooter_sub;
@@ -53,7 +53,8 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   public static Drivebase m_Drivebase = new Drivebase();
   public static Shooter_sub m_shooterSetup = new Shooter_sub();
-
+  public static Motor1 m_Motor1 = new Motor1();
+  public static ColorSetup m_ColorSetup = new ColorSetup();
   
   
   

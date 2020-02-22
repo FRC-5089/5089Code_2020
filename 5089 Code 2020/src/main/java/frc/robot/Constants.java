@@ -18,12 +18,12 @@ package frc.robot;
 public final class Constants {
 	
 	//Drive
-	public static final int MOTOR_1_ID = 0;
-	public static final int MOTOR_2_ID = 1;
-	public static final int MOTOR_3_ID = 2;
-	public static final int MOTOR_4_ID = 3;
- 	public static final int MOTOR_5_ID = 4;
-	public static final int MOTOR_6_ID = 5;
+	public static final int FLMOTOR_1_ID = 0;
+	public static final int MLMOTOR_2_ID = 1;
+	public static final int BLMOTOR_3_ID = 2;
+	public static final int FRMOTOR_4_ID = 3;
+ 	public static final int MRMOTOR_5_ID = 4;
+	public static final int BRMOTOR_6_ID = 5;
 	
 	//Conveyor
 	public static final int Con_7_ID = 6;

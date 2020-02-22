@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DriveCommand;
-import frc.robot.commands.Encoder;
 import frc.robot.commands.ExampleCommand;
 
 import frc.robot.commands.ColorMatchRed;
@@ -21,6 +20,11 @@ import frc.robot.commands.ColorMatchYellow;
 import frc.robot.subsystems.ColorSetup;
 
 
+
+import frc.robot.commands.Intake;
+import frc.robot.subsystems.Compressor_Pneumatics;
+import frc.robot.subsystems.Intake_Motor;
+import frc.robot.commands.Wheel_of_Fortune;
 
 
 
@@ -33,8 +37,6 @@ import frc.robot.commands.ConveyorCommandForward;
 import frc.robot.commands.ConveyorCommandBackward;
 import frc.robot.commands.ShooterCommand;
 import frc.robot.subsystems.Shooter_sub;
-import frc.robot.commands.IntakeForward;
-import frc.robot.commands.IntakeBackwards;
 import frc.robot.subsystems.Color_Motor;
 
 
@@ -56,7 +58,10 @@ public class RobotContainer {
   public static Shooter_sub m_shooterSetup = new Shooter_sub();
   public static Color_Motor m_Color_Motor = new Color_Motor();
   public static ColorSetup m_ColorSetup = new ColorSetup();
-  
+  public static EncoderMotor mEncoderMotor = new EncoderMotor();
+  public static Intake_Motor mIntake_Motor = new Intake_Motor();
+  public static Compressor_Pneumatics m_Compressor_Pneumatics = new Compressor_Pneumatics();
+
   
   
   
@@ -67,7 +72,6 @@ public class RobotContainer {
 
 
   
-  public static EncoderMotor mEncoderMotor = new EncoderMotor();
 
   //Commands
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -75,9 +79,9 @@ public class RobotContainer {
 
 
     
-  JoystickButton Intake_ButtonF = new JoystickButton(Driver,1);
-  JoystickButton Intake_ButtonB = new JoystickButton(Driver,2);
- 
+
+  JoystickButton Wheel_of_Fortune = new JoystickButton(Driver, 1);
+  JoystickButton Intake = new JoystickButton(Driver, 2);
   
   JoystickButton Shooter_button = new JoystickButton(Co_Driver,5);
   JoystickButton Con_buttonF = new JoystickButton(Co_Driver, 6);
@@ -87,7 +91,7 @@ public class RobotContainer {
   private final JoystickButton greenButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonG);
   private final JoystickButton yellowButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonY);
 
-
+ 
   
   
   /*double Left_Side()
@@ -120,7 +124,6 @@ public class RobotContainer {
    */
   private void configureButtonBindings() 
   {
-    Button.whileHeld(new Encoder());
     redButton.whileHeld(new ColorMatchRed());
     blueButton.whileHeld(new ColorMatchBlue());
     greenButton.whileHeld(new ColorMatchGreen());
@@ -130,8 +133,8 @@ public class RobotContainer {
     Con_buttonB.whileHeld(new ConveyorCommandBackward());
     Shooter_button.whileHeld(new ShooterCommand());
 
-    Intake_ButtonF.whileHeld(new IntakeForward());
-    Intake_ButtonB.whileHeld(new IntakeBackwards());
+    Wheel_of_Fortune.whileHeld(new Wheel_of_Fortune());
+    Intake.whileHeld(new Intake()); 
 
 
   }

@@ -51,7 +51,7 @@ public class RobotContainer {
 
   //Subsystem
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  public static DriveSetup m_Drivebase = new DriveSetup();
+  public static DriveSetup m_DriveSetup = new DriveSetup();
   public static Shooter_sub m_shooterSetup = new Shooter_sub();
   public static Motor1 m_Motor1 = new Motor1();
   public static ColorSetup m_ColorSetup = new ColorSetup();
@@ -76,9 +76,6 @@ public class RobotContainer {
 		return RIGHTY;
   }
   
-  
-    public static Joystick Driver = new Joystick(0);
-    public static Joystick Co_Driver = new Joystick(1);
 
   
   
@@ -123,7 +120,7 @@ public class RobotContainer {
    */
   public RobotContainer() 
   {
-    m_Drivebase.setDefaultCommand(new Drive());
+    m_DriveSetup.setDefaultCommand((Command) new DriveSetup());
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -136,7 +133,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() 
   {
-    Button.whileHeld(new Encoder());
+   // Button.whileHeld(new Encoder());
     redButton.whileHeld(new ColorMatchRed());
     blueButton.whileHeld(new ColorMatchBlue());
     greenButton.whileHeld(new ColorMatchGreen());

@@ -50,8 +50,8 @@ public final class Constants {
     public static int Compressor = 0;
 
     //Solenoid
-    public static int Extend = 0, Retract = 1;
-    public static int Lift = 2, Lower = 3;
+    public static int Extend = 5, Retract = 2;
+    public static int Lift = 1, Lower = 0;
     
 	
 	

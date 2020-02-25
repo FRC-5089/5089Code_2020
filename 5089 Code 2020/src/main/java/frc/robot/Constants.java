@@ -25,16 +25,18 @@ public final class Constants {
  	public static final int MRMOTOR_5_ID = 4;
 	public static final int BRMOTOR_6_ID = 5;
 	
-	//Conveyor
-	public static final int Con_7_ID = 6;
-	
-	//Shooter
-	public static final int Shooter_8_ID = 7;
-	public static final int Shooter_9_ID = 8;
 
     //Intake
-    public static int Intake = 9;
+    public static int Intake = 6;
+
+	//Conveyor
+	public static final int Con_7_ID = 7;
 	
+	//Shooter
+	public static final int Shooter_8_ID = 8;
+	public static final int Shooter_9_ID = 9;
+
+    
     //Lift
     public static int Lift1 = 10, Lift2 = 11;
 	

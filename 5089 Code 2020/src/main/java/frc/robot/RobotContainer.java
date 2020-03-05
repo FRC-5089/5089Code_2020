@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+
+import frc.robot.commands.Auton;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -145,6 +148,9 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+
+      return new Auton();
+
+  
   }
 }

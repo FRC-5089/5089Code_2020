@@ -4,47 +4,30 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+//Ale was here :)
 package frc.robot;
-
-
-import frc.robot.commands.Auton;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.DriveCommand;
-import frc.robot.commands.ExampleCommand;
-
-import frc.robot.commands.ColorMatchRed;
-import frc.robot.commands.ColorMatchBlue;
-import frc.robot.commands.ColorMatchGreen;
-import frc.robot.commands.ColorMatchYellow;
-import frc.robot.subsystems.ColorSetup;
-
-
-
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.Auton_1;
+import frc.robot.commands.Auton_2;
+import frc.robot.commands.Drive;
 import frc.robot.commands.Intake;
-import frc.robot.subsystems.Compressor_Pneumatics;
-import frc.robot.subsystems.Intake_Motor;
+import frc.robot.commands.Intake_Back;
+import frc.robot.commands.Intake_Hold;
+import frc.robot.commands.Move_to_Chamber;
+import frc.robot.commands.Shooter;
 import frc.robot.commands.Wheel_of_Fortune;
-
-
-
-import frc.robot.subsystems.DriveSetup;
+import frc.robot.subsystems.Compressor_Pneumatics;
+import frc.robot.subsystems.Conveyor_Motor;
+import frc.robot.subsystems.Drivebase;
 import frc.robot.subsystems.EncoderMotor;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Intake_Motor;
+import frc.robot.subsystems.Shooter_Motor;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.ConveyorCommandForward;
-import frc.robot.commands.ConveyorCommandBackward;
-import frc.robot.commands.ShooterCommand;
-import frc.robot.subsystems.Shooter_sub;
-import frc.robot.subsystems.Color_Motor;
-
-
-
-
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -56,55 +39,34 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
   //Subsystem
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-  public static DriveSetup m_DriveSetup = new DriveSetup();
-  public static Shooter_sub m_shooterSetup = new Shooter_sub();
-  public static Color_Motor m_Color_Motor = new Color_Motor();
-  public static ColorSetup m_ColorSetup = new ColorSetup();
-  public static EncoderMotor mEncoderMotor = new EncoderMotor();
+  public static Drivebase m_Drivebase = new Drivebase();
   public static Intake_Motor mIntake_Motor = new Intake_Motor();
   public static Compressor_Pneumatics m_Compressor_Pneumatics = new Compressor_Pneumatics();
+  public static Shooter_Motor mShooter_Motor = new Shooter_Motor();
+  public static Conveyor_Motor mConveyor_Motor = new Conveyor_Motor();
 
+  public static EncoderMotor mEncoderMotor = new EncoderMotor();
   
-  
-  
-  public static Joystick Driver = new Joystick(Constants.Joystick_Driver);
-  public static Joystick Co_Driver = new Joystick(Constants.Joystick_CoDriver);
-
-
-
-
   
 
   //Commands
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   
 
-
-    
-
-  JoystickButton Wheel_of_Fortune = new JoystickButton(Driver, 1);
-  JoystickButton Intake = new JoystickButton(Driver, 2);
+  public static Joystick Driver = new Joystick(Constants.Driver);
+  public static Joystick Co_Driver = new Joystick(Constants.Co_Driver);
   
-  JoystickButton Shooter_button = new JoystickButton(Co_Driver,5);
-  JoystickButton Con_buttonF = new JoystickButton(Co_Driver, 6);
-  JoystickButton Con_buttonB = new JoystickButton(Co_Driver, 7);
-  private final JoystickButton redButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonR);
-  private final JoystickButton blueButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonB);
-  private final JoystickButton greenButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonG);
-  private final JoystickButton yellowButton = new JoystickButton(Co_Driver, Constants.Joystick_buttonY);
 
- 
-  public double Get_Controller_LeftY()
-	{
-		double LEFTY = Driver.getRawAxis(1);
-		return LEFTY;
-  }
-  public double Get_Controller_RightY()
-	{
-		double RIGHTY = Driver.getRawAxis(3);
-		return RIGHTY;
-  }
+  //Driver Control
+  
+  
+  //Co_Driver Control
+  JoystickButton WheelofFortune = new JoystickButton(Co_Driver, 1);
+  JoystickButton Reverse_Intake = new JoystickButton(Co_Driver, 4);
+  JoystickButton Moving_Chamber = new JoystickButton(Co_Driver, 5);
+  JoystickButton Roll_In = new JoystickButton(Co_Driver, 6);
+  JoystickButton Intake = new JoystickButton(Co_Driver, 7);
+  JoystickButton Fire = new JoystickButton(Co_Driver, 8);
+  
   
 
   /**
@@ -112,7 +74,7 @@ public class RobotContainer {
    */
   public RobotContainer() 
   {
-    m_DriveSetup.setDefaultCommand(new DriveCommand());
+    m_Drivebase.setDefaultCommand(new Drive());
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -125,18 +87,14 @@ public class RobotContainer {
    */
   private void configureButtonBindings() 
   {
-    redButton.whileHeld(new ColorMatchRed());
-    blueButton.whileHeld(new ColorMatchBlue());
-    greenButton.whileHeld(new ColorMatchGreen());
-    yellowButton.whileHeld(new ColorMatchYellow());
-    
-    Con_buttonF.whileHeld(new ConveyorCommandForward());
-    Con_buttonB.whileHeld(new ConveyorCommandBackward());
-    Shooter_button.whileHeld(new ShooterCommand());
 
-    Wheel_of_Fortune.whileHeld(new Wheel_of_Fortune());
-    Intake.whileHeld(new Intake()); 
 
+    WheelofFortune.whileHeld(new Wheel_of_Fortune());
+    Moving_Chamber.whileHeld(new Move_to_Chamber());
+    Intake.whileHeld(new Intake());
+    Fire.whileHeld(new Shooter());
+    Roll_In.whileHeld(new Intake_Hold());
+    Reverse_Intake.whileHeld(new Intake_Back());
 
   }
 
@@ -146,11 +104,15 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
+  public Auton_2 getAutonomousCommand() 
+  {
 
-      return new Auton();
+    //Anlge Shoot Drive Turn_180
+    return new Auton_2();
 
-  
+
+
   }
 }
+
+
